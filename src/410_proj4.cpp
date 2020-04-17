@@ -86,7 +86,14 @@ void audit_results() {
 
 int main()
 {
-	//TODO your code here
+	thread t1(doWaiter, 1, "in4.txt");
+	thread t2(doBaker, 2);
+
+	t1.join();
+	t2.join();
+
+	audit_results();
+
 	return SUCCESS;
 }
 
